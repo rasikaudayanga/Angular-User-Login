@@ -1,0 +1,25 @@
+﻿<h2 class="title">Sign in</h2>
+<div>
+    <form [formGroup]="welcomeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="form-control" (keyup)="invalidUserName = false"
+                [ngClass]="{ 'is-invalid': (submitted && f.username.errors) || (submitted && invalidUserName) }" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required.</div>
+            </div>
+            <div *ngIf="submitted && invalidUserName" class="invalid-feedback">
+                <div *ngIf="invalidUserName">The Username is not recognized.</div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <button [disabled]="loading" class="btn btn-primary btn-block submit-button">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                {{loading ? 'Verifying' : 'Next'}}
+            </button>
+        </div>
+        <div class="form-group">
+            <p class="register">New to Autodesk?<a routerLink="/register" class="btn btn-link">Create Account</a></p>
+        </div>
+    </form>
+</div>

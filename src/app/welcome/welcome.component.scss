@@ -1,0 +1,31 @@
+.title {
+  margin-bottom: 24px;
+}
+
+.form-group {
+  &.new-user {
+    margin-top: 12px;
+  }
+  margin-bottom: 0;
+  .register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: #808080;
+    margin: 0;
+    padding: 0;
+    > a {
+      margin: 0;
+      padding: 0;
+      margin-left: 5px;
+      font-size: 14px;
+      color: #006eaf;
+      :hover {
+        color: #006eaf;
+        text-decoration: underline;
+      }
+    }
+  }
+}

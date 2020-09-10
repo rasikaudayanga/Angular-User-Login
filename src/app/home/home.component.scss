@@ -1,0 +1,12 @@
+.home-wrapper {
+    text-align: center;
+    .description {
+        padding: 20px 0;
+    }
+    a {
+        color: #006eaf !important;
+        :hover {
+            text-decoration: underline !important;
+        }
+    }
+}

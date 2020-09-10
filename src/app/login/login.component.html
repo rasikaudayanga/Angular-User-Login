@@ -1,0 +1,28 @@
+﻿<div class="user">
+    <a routerLink="/welcome" class="previous nav-item nav-link">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </a>
+    <div class="welcome">
+        <h2>Welcome</h2>
+        <p>{{userName}}</p>
+    </div>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" (keyup)="invalidPassword = false"
+            [ngClass]="{ 'is-invalid': (submitted && f.password.errors) || (submitted && invalidPassword) }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+        <div *ngIf="submitted && invalidPassword" class="invalid-feedback">
+            <div *ngIf="invalidPassword">The Password is not matched.</div>
+        </div>
+    </div>
+    <div class="form-group submit-button">
+        <button [disabled]="loading" class="btn btn-primary btn-block">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Sign in
+        </button>
+    </div>
+</form>
